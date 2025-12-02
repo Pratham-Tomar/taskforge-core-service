@@ -16,6 +16,3 @@ Core API service for TaskForge application.
 - Redis
 - Kafka
 
-## Getting Started
-
-

@@ -17,14 +17,14 @@ public class RetryConfig {
 
         // Retry Policy: Max 3 attempts
         SimpleRetryPolicy retryPolicy = new SimpleRetryPolicy();
-        retryPolicy.setMaxAttempts(3);
+        retryPolicy.setMaxAttempts(5);
         retryTemplate.setRetryPolicy(retryPolicy);
 
         // Backoff Policy: Exponential backoff
         ExponentialBackOffPolicy backOffPolicy = new ExponentialBackOffPolicy();
         backOffPolicy.setInitialInterval(2000); // 2 seconds
         backOffPolicy.setMultiplier(2.0); // Double the interval each retry
-        backOffPolicy.setMaxInterval(10000); // Max 10 seconds
+        backOffPolicy.setMaxInterval(15000); // Max 10 seconds
         retryTemplate.setBackOffPolicy(backOffPolicy);
 
         return retryTemplate;

@@ -52,7 +52,7 @@ public class User {
     @Column(nullable = false, unique = true , length = 180)
     private String email;
 
-    @Column(nullable = false,length = 180)
+    @Column(length = 180)
     private String passwordHash;
 
     @Column(length = 20)
@@ -62,11 +62,17 @@ public class User {
     @Column(length = 30, nullable = false)
     private AuthProvider authProvider= AuthProvider.LOCAL;
 
+    @Column(name = "oauth_provider_id")
+    private String oauthProviderId; // Store OAuth provider ID
+
+    private String profilePicture; // Store profile picture URL
+
     @Column(nullable = false)
+    @Builder.Default
     private Boolean isActive=true;
 
     @Column(nullable = false)
-    private Boolean emailVerified = false;
+    private Boolean emailVerified;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 30)
